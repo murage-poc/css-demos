@@ -11,15 +11,18 @@
 
         body {
             background-color: rgb(29, 29, 31);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
         }
 
         .box {
             position: relative;
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             border-radius: 10px;
             background-color: rgb(29, 29, 31);
-            margin: 0 auto;
         }
 
         .box::before,
@@ -30,18 +33,12 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            padding: 1px;
+            padding: 2px;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
             border-radius: inherit;
-            background-image: conic-gradient(from var(--rotation-angle), #ea2dd8,
-                    /* Vibrant pink */
-                    #007aff,
-                    /* Soft blue */
-                    #1abc9c
-                    /* Calm teal */
-                );
+            background-image: conic-gradient(from var(--rotation-angle), #ea2dd8, #007aff, #1abc9c);
             animation: rotatex 2s linear infinite;
         }
 
