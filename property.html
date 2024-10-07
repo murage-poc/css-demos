@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <style>
+         @property --rotation-angle {
+         syntax: "
+         <angle>
+         ";
+         inherits: false;
+         initial-value: 0deg;
+         }
+         body{
+         background-color: rgb(29, 29, 31);
+         }
+         .box {
+         position: relative;
+         width: 150px;
+         height: 150px;
+         border-radius: 10px;
+         background-color: rgb(29, 29, 31);
+         margin: 0 auto;
+         }
+         .box::before,.box::after{
+         content: "";
+         position: absolute;
+         background-color: red;
+         width: 100%;
+         height: 100%;
+         z-index: -1;
+         padding: 1px;
+         left: 50%;
+         top: 50%;
+         transform: translate(-50%, -50%);
+         border-radius: inherit;
+         background-image: conic-gradient(from var(--rotation-angle), #ea2dd8,  /* Vibrant pink */
+         #007aff,  /* Soft blue */
+         #1abc9c   /* Calm teal */);
+         animation: rotatex 2s linear infinite;
+         }
+         .box::after {
+         filter:blur(60px);
+         }
+         @keyframes rotatex {
+         to {
+         --rotation-angle: 360deg
+         }
+         }
+      </style>
+   </head>
+   <body>
+      <div class="box">
+      </div>
+   </body>
+</html>
